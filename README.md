@@ -245,6 +245,7 @@ Be prepared to answer these common oral examination questions:
 | **Phase 2** | `com.bugreplay.runner.Phase2TestRunner` | 5 | **PASSED** |
 | **Phase 3** | `com.bugreplay.storage.Phase3TestRunner` | 7 | **PASSED** |
 | **Phase 4** | `com.bugreplay.ui.Phase4UiTest` | 4 | **PASSED** |
-| **Phase 5** | `com.bugreplay.storage.Phase5DatabaseTest` | 5 | **PASSED** |
+| **Phase 5 (Offline)** | `com.bugreplay.storage.Phase5DatabaseTest` | 5 | **PASSED** |
+| **Phase 5 (Live MySQL)** | `com.bugreplay.storage.DatabaseLiveIntegrationTest` | 7 | **PASSED** |
 | **Phase 6** | `com.bugreplay.analysis.TraceComparatorTest` | 4 | **PASSED** |
-| **Total** | | **25 / 25** | **100% PASSED** |
+| **Total** | | **32 / 32** | **100% PASSED** |

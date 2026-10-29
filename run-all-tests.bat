@@ -48,6 +48,12 @@ echo [6/6] Running Phase 5 Tests (MySQL, JDBC and Offline Resilience)...
 java -cp %CLASSPATH% com.bugreplay.storage.Phase5DatabaseTest
 if %ERRORLEVEL% neq 0 exit /b %ERRORLEVEL%
 
+if exist "config.properties" (
+    echo Running Live MySQL Integration Tests...
+    java -cp %CLASSPATH% com.bugreplay.storage.DatabaseLiveIntegrationTest
+    if %ERRORLEVEL% neq 0 exit /b %ERRORLEVEL%
+)
+
 echo.
 echo =======================================================================
 echo Running Phase 6 Tests (Trace Comparison, Diffing and Replay)...

@@ -18,17 +18,27 @@ if %ERRORLEVEL% neq 0 (
 )
 
 echo [2/3] Compiling Phase 5 test suite...
-javac -cp %CLASSPATH% -d build\classes src\test\java\com\bugreplay\storage\Phase5DatabaseTest.java
+javac -cp %CLASSPATH% -d build\classes src\test\java\com\bugreplay\storage\*.java
 if %ERRORLEVEL% neq 0 (
     echo [ERROR] Compilation of Phase 5 test suite failed.
     exit /b %ERRORLEVEL%
 )
 
-echo [3/3] Running Phase 5 Tests...
+echo [3/3] Running Phase 5 Tests (Offline Resilience ^& Configuration)...
 java -cp %CLASSPATH% com.bugreplay.storage.Phase5DatabaseTest
 if %ERRORLEVEL% neq 0 (
     echo [TEST FAILED] One or more tests failed.
     exit /b %ERRORLEVEL%
+)
+
+if exist "config.properties" (
+    echo.
+    echo Running Live MySQL Integration Test...
+    java -cp %CLASSPATH% com.bugreplay.storage.DatabaseLiveIntegrationTest
+    if %ERRORLEVEL% neq 0 (
+        echo [TEST FAILED] Live MySQL integration test failed.
+        exit /b %ERRORLEVEL%
+    )
 )
 
 echo.
