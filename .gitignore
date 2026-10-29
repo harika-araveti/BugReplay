@@ -1,0 +1,41 @@
+# =====================================================================
+# BugReplay .gitignore
+# =====================================================================
+
+# 1. Local Configuration & Secrets (NEVER COMMIT CREDENTIALS)
+config.properties
+*.env
+
+# 2. Build Output & Bytecode
+build/
+target/
+*.class
+*.jar
+!lib/*.jar
+
+# 3. Execution Traces (keep directory structure via .gitkeep)
+traces/*.json
+!traces/.gitkeep
+!traces/example_*.json
+
+# 4. IDE & Editor Metadata
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+.settings/
+.project
+.classpath
+.nb-gradle/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# 5. OS & Log Files
+Thumbs.db
+Desktop.ini
+.DS_Store
+*.log
