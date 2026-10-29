@@ -1,5 +1,6 @@
 @echo off
 setlocal
+cd /d "%~dp0"
 echo ===================================================
 echo Launching BugReplay Desktop Application...
 echo ===================================================
@@ -18,4 +19,4 @@ if %ERRORLEVEL% neq 0 (
 )
 
 echo Starting BugReplay GUI...
-start "BugReplay" javaw -cp %CLASSPATH% com.bugreplay.Main
+start "BugReplay" java -cp "%CLASSPATH%" com.bugreplay.Main
